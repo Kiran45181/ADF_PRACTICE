@@ -1,0 +1,9 @@
+{
+	"name": "ADF-KIRAN-21AUG",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "425199f7-62fc-41f5-b56d-80f3ae3de25b",
+		"tenantId": "38d6d9fb-c85b-479a-a64a-3657ea5facb3"
+	}
+}
