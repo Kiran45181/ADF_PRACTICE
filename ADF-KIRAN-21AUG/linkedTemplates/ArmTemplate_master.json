@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADF-KIRAN-21AUG"
+		},
+		"ab_kiran_gen1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ab_kiran_gen1'"
+		},
+		"act_kiran_gen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'act_kiran_gen2'"
+		},
+		"act_kiran_gen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sa2kiran21aug.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADF-KIRAN-21AUG_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ab_kiran_gen1_connectionString": {
+						"value": "[parameters('ab_kiran_gen1_connectionString')]"
+					},
+					"act_kiran_gen2_accountKey": {
+						"value": "[parameters('act_kiran_gen2_accountKey')]"
+					},
+					"act_kiran_gen2_properties_typeProperties_url": {
+						"value": "[parameters('act_kiran_gen2_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

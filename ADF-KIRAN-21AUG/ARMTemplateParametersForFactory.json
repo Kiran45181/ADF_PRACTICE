@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF-KIRAN-21AUG"
+		},
+		"ab_kiran_gen1_connectionString": {
+			"value": ""
+		},
+		"act_kiran_gen2_accountKey": {
+			"value": ""
+		},
+		"act_kiran_gen2_properties_typeProperties_url": {
+			"value": "https://sa2kiran21aug.dfs.core.windows.net/"
+		}
+	}
+}
